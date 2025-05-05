@@ -1,6 +1,38 @@
-mvnw.cmd clean package -DskipTests 
+para usar los comandos sin instalar maven seria mvnw.cmd para windows y ./mvnw en linu
+mvn clean	Limpia el directorio target
+mvn compile	Compila el código fuente
+mvn test	Ejecuta los tests
+mvn package	Empaqueta el proyecto en un JAR/WAR
+mvn install	Instala el artefacto en tu repositorio local
+mvn spring-boot:run	Inicia la aplicación Spring Boot
+mvn clean package Empaqueta el jar
 
-docker pull eclipse-temurin:17-jdk-jammy
 
-docker-compose down -v --rmi all
+docker
+
+docker-compose up --build	Construye y levanta los contenedores
+docker-compose down	Detiene y elimina contenedores
+docker-compose down -v	Elimina contenedores y volúmenes
+docker-compose logs -f	Muestra logs en tiempo real
+docker ps	Lista contenedores en ejecución
+docker ps -a	Lista todos los contenedores
+docker images	Lista imágenes locales
+docker rmi <imagen>	Elimina una imagen
+docker exec -it <contenedor> bash	Accede al shell del contenedor
+docker logs <contenedor>	Muestra logs de un contenedor
+
+Al hacer cambios en la api, generar el jar de nuevo y volver a levantar el docker compose:
+
+mvn clean package # se puede añadir -DskipTests por si no esta preparado para tests
 docker-compose up --build
+
+Debug:
+
+docker-compose logs -f app  # Ver logs de la aplicación
+docker exec -it app bash    # Acceder al contenedor
+
+
+Reiniciar:
+
+docker-compose down -v
+docker-compose up --build 
