@@ -32,15 +32,18 @@ Para usar los comandos sin instalar Maven, utiliza `mvnw.cmd` para Windows y `./
 Genera el jar de nuevo y vuelve a levantar el docker compose:
 
 mvn clean package # se puede añadir -DskipTests por si no esta preparado para tests
+
 docker-compose up --build
 
 Debug:
 
 docker-compose logs -f app  # Ver logs de la aplicación
+
 docker exec -it app bash    # Acceder al contenedor
 
 
 Reiniciar:
 
 docker-compose down -v
+
 docker-compose up --build 
